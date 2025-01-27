@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0
+      author: Roman K
+      changes:
+        - sqlFile:
+            path: "db/changelog/v.1.0/2025-01-24-users_table-create.sql"
+  - changeSet:
+      id: 1
+      author: Roman K
+      changes:
+        - sqlFile:
+            path: "db/changelog/v.1.0/2025-01-24-roles_table-create.sql"
+  - changeSet:
+      id: 2
+      author: Roman K
+      changes:
+        - sqlFile:
+            path: "db/changelog/v.1.0/2025-01-24-refresh_tokens_table-create.sql"
+  - changeSet:
+      id: 3
+      author: Roman K
+      changes:
+        - sqlFile:
+            path: "db/changelog/v.1.0/2025-01-24-tasks_table-create.sql"

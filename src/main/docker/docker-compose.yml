@@ -1,0 +1,26 @@
+services:
+  app:
+    image: 'docker-spring-boot-postgres:latest'
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - postgres_db
+    environment:
+      - DB_URL=jdbc:postgresql://postgres_db:5432/tasks-db
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - ACCESS_TOKEN_SECRET=${ACCESS_TOKEN_SECRET}
+    ports:
+      - "6868:8080"
+
+  postgres_db:
+    container_name: postgres_db
+    image: 'postgres'
+    restart: always
+    environment:
+      - POSTGRES_DB=tasks-db
+      - POSTGRES_USERNAME=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "5433:5432"

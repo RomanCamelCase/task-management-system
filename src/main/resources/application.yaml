@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: "task-management-system"
+
+  web:
+    locale: en
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+auth:
+  tokens:
+    access-token:
+      secret: ${ACCESS_TOKEN_SECRET}
+      duration: 900000
+    refresh-token:
+      duration: 172800000
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
